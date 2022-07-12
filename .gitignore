@@ -1,10 +1,77 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 
 bin/
 obj/
 .vs/
+
+_build/
+.DS_Store
+packages
+TestResults
+*ncrunch*
 *.user
+*.suo
+*.orig
+e2e/screenshots
+
+api/.nuget/NuGet.exe
+api/Mdt.Test/App.config
 api/**/*.sln
 api/**/launchSettings.json
+api/**/Logs/*.*
+api/**/App_Data/*.xml
+api/**/*.ncrunchproject
+api/.vs
+api/_core/Mdt.WebApi/keys
+db/fuzzy/clr/
+api/_core/appsettings.json
+
+nodejs
+node_modules/
+bower_components/
+gulp-starter-master/
+
+ui/_core/scripts/views/Playground.js
+ui/_core/scripts/views/playgrounds/
+ui/config.js
+ui/kc/*
+.vs/config/applicationhost.config
+_bin/
+api/_core/Mdt.WebApi/content/CalculatedPrice.xlsx
+e2e/screenshots/*
+e2e/debug.log
+e2e/**/report.json
+e2e/*/screenshots/*
+api/_NCrunch_*
+utils/templateHelper/templates/*/result/*
+utils/templateHelper/examples/*/result/*
+ui/.vscode
+.idea
+*.code-search
+ui/json-schema.json
+debug.log
+ui/mdt-client/dist/*
+ui/mdt-client/types/**/*.d.ts
