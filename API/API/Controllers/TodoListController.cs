@@ -21,14 +21,14 @@ namespace API.Controllers
 		}
 
 		[HttpPost]
-		public TodoList Post(TodoList todoList)
+		public IEnumerable<TodoList> Post(TodoList todoList)
 		{
 			using (var context = new TodoListDbContext(_configuration))
 			{
 				context.Add(todoList);
 				context.SaveChanges();
 			}
-			return todoList;
+			return Get();
 		}
 
 		[HttpGet]
@@ -56,7 +56,8 @@ namespace API.Controllers
 			}
 		}
 
-		public void DeleteAll()
+		[HttpDelete("deleteAll")]
+		public List<TodoList> DeleteAll()
 		{
 			using (var context = new TodoListDbContext(_configuration))
 			{
@@ -68,6 +69,8 @@ namespace API.Controllers
 					context.TodoList.Remove(todo);
 					context.SaveChanges();
 				}
+				return allTodos;
+
 			}
 		}
 	}
