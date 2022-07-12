@@ -5,16 +5,6 @@
 bin/
 obj/
 .vs/
-
-_build/
-.DS_Store
-packages
-TestResults
-*ncrunch*
 *.user
-*.suo
-*.orig
-e2e/screenshots
-
 api/**/*.sln
 api/**/launchSettings.json
