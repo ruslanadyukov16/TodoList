@@ -1,9 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
 
 # testing
 /coverage
@@ -49,8 +45,6 @@ api/_core/Mdt.WebApi/keys
 db/fuzzy/clr/
 api/_core/appsettings.json
 
-nodejs
-node_modules/
 bower_components/
 gulp-starter-master/
 
