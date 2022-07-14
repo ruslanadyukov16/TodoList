@@ -41,7 +41,7 @@ namespace API
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
 			// Создание базы данных из appSettings.json
-			var dbContext = new TodoListDbContext(Configuration);
+			var dbContext = new TodoListDbContext();
 			dbContext.Database.EnsureCreated();
 
 			app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());

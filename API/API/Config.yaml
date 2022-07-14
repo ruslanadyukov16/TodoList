@@ -1,0 +1,1 @@
+databaseConnectionString: "Data Source=localhost\\SQLExpress; Initial Catalog=ReactApi; Integrated Security=True"

@@ -23,7 +23,7 @@ namespace API.Controllers
 		[HttpPost]
 		public IEnumerable<TodoList> Post(TodoList todoList)
 		{
-			using (var context = new TodoListDbContext(_configuration))
+			using (var context = new TodoListDbContext())
 			{
 				context.Add(todoList);
 				context.SaveChanges();
@@ -34,7 +34,7 @@ namespace API.Controllers
 		[HttpGet]
 		public IEnumerable<TodoList> Get()
 		{
-			using (var context = new TodoListDbContext(_configuration))
+			using (var context = new TodoListDbContext())
 			{
 				return context.TodoList.ToList();
 			}
@@ -44,7 +44,7 @@ namespace API.Controllers
 		[HttpDelete]
 		public TodoList Delete(int id)
 		{
-			using (var context = new TodoListDbContext(_configuration))
+			using (var context = new TodoListDbContext())
 			{
 				var recordToDelete = context.TodoList.FirstOrDefault(x => x.ID == id);
 				if (recordToDelete != null)
@@ -59,7 +59,7 @@ namespace API.Controllers
 		[HttpDelete("deleteAll")]
 		public List<TodoList> DeleteAll()
 		{
-			using (var context = new TodoListDbContext(_configuration))
+			using (var context = new TodoListDbContext())
 			{
 				var allTodos = context.TodoList.ToList();
 
