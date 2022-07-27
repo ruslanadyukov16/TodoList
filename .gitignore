@@ -18,3 +18,5 @@ gulp-starter-master/
 
 .idea
 .cache/
+
+/node_modules
