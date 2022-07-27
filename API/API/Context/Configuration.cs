@@ -2,9 +2,14 @@
 
 namespace API.Context
 {
-	public class Configuration
+	public class Configuration : IConfiguration
 	{
-			public string databaseConnectionString { get; set; }
+		public string DatabaseConnectionString { get; set; }
+	}
+
+	public interface IConfiguration
+	{
+		public string DatabaseConnectionString { get; set; }
 	}
 
 	public static class getConfiguration
@@ -14,7 +19,7 @@ namespace API.Context
 			using (var input = System.IO.File.OpenText(fileName))
 			{
 				var deserializer = new YamlDotNet.Serialization.DeserializerBuilder()
-					.WithNamingConvention(CamelCaseNamingConvention.Instance)
+					.WithNamingConvention(PascalCaseNamingConvention.Instance)
 					.Build();
 
 				var myConfig = deserializer.Deserialize<Configuration>(input);

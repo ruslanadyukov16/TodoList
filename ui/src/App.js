@@ -26,7 +26,7 @@ function App() {
 
 	return (
 		<div className="wrapper">
-			<h1>Список дел</h1>
+			<h1>TODO List</h1>
 			<AddTodo setTodos={setTodos} getTodos={getTodos} todos={todos}></AddTodo>
 			<TodoList todos={todos} setTodos={setTodos} onToggle={toggleTodo} key={Date.now()} />
 			<DeleteAll setTodos={setTodos}></DeleteAll>

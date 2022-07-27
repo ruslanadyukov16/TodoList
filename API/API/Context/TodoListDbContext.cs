@@ -10,13 +10,19 @@ namespace API.Context
 {
 	public class TodoListDbContext : DbContext, ITodoListDbContext
 	{
-		private readonly Configuration _config = getConfiguration.getYamlSerialization("Config.yaml");
 
+		private readonly IConfiguration _config;
+
+
+		public TodoListDbContext(IConfiguration config)
+		{
+			_config = config;
+		}
 
 		public DbSet<TodoList> TodoList { get; set; }
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer(_config.databaseConnectionString);
+			optionsBuilder.UseSqlServer(getConfiguration.getYamlSerialization("Config.yaml").DatabaseConnectionString);
 		}
 	}
 

@@ -1,7 +1,6 @@
 ﻿using API.Context;
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +22,7 @@ namespace API.Controllers
 		[HttpPost]
 		public IEnumerable<TodoList> Post(TodoList todoList)
 		{
-			using (var context = new TodoListDbContext())
+			using (var context = new TodoListDbContext(_configuration))
 			{
 				context.Add(todoList);
 				context.SaveChanges();
@@ -34,7 +33,7 @@ namespace API.Controllers
 		[HttpGet]
 		public IEnumerable<TodoList> Get()
 		{
-			using (var context = new TodoListDbContext())
+			using (var context = new TodoListDbContext(_configuration))
 			{
 				return context.TodoList.ToList();
 			}
@@ -44,7 +43,7 @@ namespace API.Controllers
 		[HttpDelete]
 		public TodoList Delete(int id)
 		{
-			using (var context = new TodoListDbContext())
+			using (var context = new TodoListDbContext(_configuration))
 			{
 				var recordToDelete = context.TodoList.FirstOrDefault(x => x.ID == id);
 				if (recordToDelete != null)
@@ -59,7 +58,7 @@ namespace API.Controllers
 		[HttpDelete("deleteAll")]
 		public List<TodoList> DeleteAll()
 		{
-			using (var context = new TodoListDbContext())
+			using (var context = new TodoListDbContext(_configuration))
 			{
 				var allTodos = context.TodoList.ToList();
 
