@@ -20,3 +20,5 @@ gulp-starter-master/
 .cache/
 
 node_modules/
+
+.vscode
