@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import Context from "../context";
 
 const styles = {
 	txt: {
@@ -27,7 +26,7 @@ function TodoItem(props) {
 			}
 		})
 
-		props.setTodos(props.todos.filter(todo => todo.id != id))
+		props.setTodos(props.todos.filter(todo => todo.id !== id))
 	}
 
 	let classes = [];
